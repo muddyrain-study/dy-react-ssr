@@ -1,9 +1,10 @@
-const express = require('express');
+import React from 'react';
+import { renderToString } from 'react-dom/server';
+import App from './app';
 
-const app = express();
-app.get('*', (req, res) => {
-  const html = `
-  <!DOCTYPE html>
+export default (req, res) => {
+  const component = renderToString(<App />);
+  const html = `<!DOCTYPE html>
   <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -13,14 +14,9 @@ app.get('*', (req, res) => {
   </head>
   <body>
     <div id="root">
-      hello ssr1122
+    ${component}111
     </div>
   </body>
-  </html>
-  `;
+  </html>`;
   res.send(html);
-});
-
-app.listen(8080, () => {
-  console.log('listen to 8080 port');
-});
+};
