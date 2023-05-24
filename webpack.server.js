@@ -12,7 +12,24 @@ const serverConfig = {
     filename: 'server.js',
     path: path.resolve(__dirname, './dist'),
   },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                exportOnlyLocals: true,
+              },
+            },
+          },
+        ],
+      },
+    ],
+  },
   // 排除
-  externals: [webpackNodeExternals()],
+  // externals: [webpackNodeExternals()],
 };
 module.exports = merge(baseConfig, serverConfig);

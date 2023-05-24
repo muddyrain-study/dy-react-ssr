@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
-
-export default () => {
-  const [n, setN] = useState(1);
+import styles from './index.css';
+export default function () {
+  const [number, setNumber] = useState(0);
   return (
     <div>
-      <h1>首页 页面 {n}</h1>
+      <h1>首页 : {number}</h1>
       <button
+        className={styles.button}
         onClick={() => {
-          console.log('hello');
-          setN(n + 1);
+          setNumber(number + 1);
         }}
       >
         点击
       </button>
     </div>
   );
-};
+}

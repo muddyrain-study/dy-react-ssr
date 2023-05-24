@@ -1,0 +1,22 @@
+/*!********************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./src/pages/Home/index.css ***!
+  \********************************************************************************************************/
+.O0Z0ChXGBlHHsBgUuvfp {
+  border: 1px solid #333;
+  background: rgb(108, 197, 226);
+}
+
+.O0Z0ChXGBlHHsBgUuvfp:hover {
+  background: lightblue;
+}
+
+/*!*****************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./src/assets/global.css ***!
+  \*****************************************************************************************************/
+body {
+  padding: 50px;
+  background-color: red;
+}
+
+
+/*# sourceMappingURL=bundle.60e66.css.map*/
