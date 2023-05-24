@@ -11,6 +11,7 @@ const serverConfig = {
   output: {
     filename: 'server.js',
     path: path.resolve(__dirname, './dist'),
+    publicPath: '/',
   },
   module: {
     rules: [
@@ -23,6 +24,20 @@ const serverConfig = {
               modules: {
                 exportOnlyLocals: true,
               },
+            },
+          },
+        ],
+      },
+      {
+        test: /\.(png)|(gif)|(jpg)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              name: 'img/[name].[hash:5].[ext]',
+              limit: 10 * 1024,
+              esModule: false,
+              emitFile: false,
             },
           },
         ],

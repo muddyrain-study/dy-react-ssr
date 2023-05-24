@@ -12,6 +12,7 @@ const clientConfig = {
   output: {
     filename: 'js/bundle.[hash:5].js',
     path: path.resolve(__dirname, './public'),
+    publicPath: '/',
   },
   module: {
     rules: [
@@ -26,6 +27,20 @@ const clientConfig = {
             },
           },
         ],
+      },
+      {
+        test: /\.(png)|(gif)|(jpg)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              name: 'img/[name].[hash:5].[ext]',
+              limit: 10 * 1024,
+              esModule: false,
+            },
+          },
+        ],
+        type: 'javascript/auto',
       },
     ],
   },
