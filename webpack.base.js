@@ -1,18 +1,10 @@
 const path = require('path');
-const webpackNodeExternals = require('webpack-node-externals');
 /**
  * @type {import("webpack").Configuration}
  */
-
 module.exports = {
   mode: 'development',
-  entry: './src/server',
-  target: 'node',
-  output: {
-    filename: 'server.js',
-  },
-  // 排除
-  externals: [webpackNodeExternals()],
+  watch: true,
   module: {
     rules: [
       {

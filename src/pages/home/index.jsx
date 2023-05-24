@@ -1,5 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 export default () => {
-  return <h1>333</h1>;
+  const [n, setN] = useState(1);
+  return (
+    <div>
+      <h1>首页 页面 {n}</h1>
+      <button
+        onClick={() => {
+          console.log('hello');
+          setN(n + 1);
+        }}
+      >
+        点击
+      </button>
+    </div>
+  );
 };

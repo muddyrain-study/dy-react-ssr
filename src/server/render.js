@@ -1,6 +1,7 @@
 import React from 'react';
 import { renderToString } from 'react-dom/server';
-import App from './app';
+import App from './App';
+import getScript from './getScript';
 
 export default (req, res) => {
   const component = renderToString(<App />);
@@ -13,9 +14,8 @@ export default (req, res) => {
     <title>Document</title>
   </head>
   <body>
-    <div id="root">
-    ${component}111
-    </div>
+    <div id="root">${component}</div>
+    ${getScript()}
   </body>
   </html>`;
   res.send(html);
