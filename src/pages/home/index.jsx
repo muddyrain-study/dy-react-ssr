@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import styles from './index.module.css';
 import pngUrl from '../../assets/1.png';
 
-console.log(styles);
 export default function () {
   const [number, setNumber] = useState(0);
   return (
