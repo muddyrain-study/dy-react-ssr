@@ -7,6 +7,7 @@ export function Header() {
     <div className={styles.header}>
       <Link to='/'>首页</Link>
       <Link to='/movies'>电影列表</Link>
+      <Link to='/admin'>电影列表</Link>
     </div>
   );
 }

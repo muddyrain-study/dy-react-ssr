@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import styles from './index.module.css';
 import pngUrl from '../../assets/1.png';
 
-export default function () {
+export const Home = () => {
   const [number, setNumber] = useState(0);
   return (
     <div>
@@ -21,4 +21,4 @@ export default function () {
       <img src={pngUrl} alt='' />
     </div>
   );
-}
+};

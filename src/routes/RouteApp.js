@@ -1,19 +1,29 @@
 import { Header } from '@/components/Header';
+import { Front } from '@/pages/Front';
 import { NotFound } from '@/pages/NotFound';
-import Home from '@/pages/home';
+import { Home } from '@/pages/home';
 import { Movie } from '@/pages/movie';
 import React from 'react';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import { routes } from './routeConfig';
+
+// 递归函数
+const routerViews = routerItems => {
+  if (routerItems && routerItems.length) {
+    return routerItems.map(({ path, key, element, children, redirect }) => {
+      if (children && children.length) {
+        return (
+          <Route key={key || path} path={path} element={element}>
+            {routerViews(children)}
+          </Route>
+        );
+      } else {
+        return <Route key={key || path} path={path} element={element}></Route>;
+      }
+    });
+  }
+};
+
 export const RouteApp = () => {
-  return (
-    <div>
-      <Header />
-      <Routes>
-        {routes.map(route => (
-          <Route key={route.path} path={route.path} element={route.element} />
-        ))}
-      </Routes>
-    </div>
-  );
+  return <Routes>{routerViews(routes)}</Routes>;
 };
