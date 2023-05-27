@@ -1,6 +1,6 @@
 import React from 'react';
 import { NotFound } from '@/pages/NotFound';
-import { Home } from '@/pages/home';
+import Home from '@/pages/home';
 import { Movie } from '@/pages/movie';
 import { Front } from '@/pages/Front';
 import Admin from '@/pages/Admin';

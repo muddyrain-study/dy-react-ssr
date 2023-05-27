@@ -10,17 +10,21 @@ import { routes } from './routeConfig';
 // 递归函数
 const routerViews = routerItems => {
   if (routerItems && routerItems.length) {
-    return routerItems.map(({ path, key, element, children, redirect }) => {
-      if (children && children.length) {
-        return (
-          <Route key={key || path} path={path} element={element}>
-            {routerViews(children)}
-          </Route>
-        );
-      } else {
-        return <Route key={key || path} path={path} element={element}></Route>;
+    return routerItems.map(
+      ({ path, key, element, Component, children, redirect }) => {
+        if (children && children.length) {
+          return (
+            <Route key={key || path} path={path} element={element}>
+              {routerViews(children)}
+            </Route>
+          );
+        } else {
+          return (
+            <Route key={key || path} path={path} element={element}></Route>
+          );
+        }
       }
-    });
+    );
   }
 };
 
